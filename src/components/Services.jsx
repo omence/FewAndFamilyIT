@@ -35,7 +35,7 @@ export default function Services() {
         <h2 id="services-heading" className="section-title">Services Built for Local Government &amp; Business</h2>
         <p className={`section-subtitle ${styles.intro}`}>
           We focus on four core areas where we can make an immediate, measurable difference
-          for organizations in Conroe and Montgomery County.
+          for organizations in Montgomery County and surrounding areas.
         </p>
         <ul className={styles.grid}>
           {services.map((s) => (
