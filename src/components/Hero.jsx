@@ -26,7 +26,7 @@ export default function Hero() {
         </h1>
         <p className={styles.sub}>
           Few &amp; Family IT is a family-owned consulting firm serving local governments
-          and businesses across Conroe and Montgomery County. We bring big-firm expertise
+          and businesses across Montgomery County and surrounding areas. We bring big-firm expertise
           with the personal touch of a neighbor you can actually meet.
         </p>
         <div className={styles.actions}>
