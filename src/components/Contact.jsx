@@ -11,6 +11,14 @@ const FORM_ENDPOINT = `https://formsubmit.co/ajax/${encodeURIComponent(EMAIL)}`
 
 const emptyForm = { name: '', email: '', organization: '', message: '', _honey: '' }
 
+function deliveryError(data) {
+  const message = String(data?.message || '')
+  if (message.toLowerCase().includes('activation')) {
+    return `FormSubmit sent a confirmation link to ${EMAIL}. Open that mailbox, check Junk if it is not in the inbox, and click Activate Form. Then send this message again.`
+  }
+  return `We couldn't send that. Call ${PHONE_LABEL} or email ${EMAIL}.`
+}
+
 function validate(form) {
   const errors = {}
   if (!form.name.trim()) errors.name = 'Enter your full name.'
@@ -84,7 +92,10 @@ export default function Contact() {
         body: new URLSearchParams(payload),
       })
       const data = await res.json().catch(() => ({}))
-      if (!res.ok || String(data.success) !== 'true') throw new Error('Submission failed')
+      if (!res.ok || String(data.success) !== 'true') {
+        setError(deliveryError(data))
+        return
+      }
       setSubmitted(true)
     } catch {
       setError(`We couldn't send that. Call ${PHONE_LABEL} or email ${EMAIL}.`)
