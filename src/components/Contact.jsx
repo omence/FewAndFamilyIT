@@ -2,16 +2,14 @@ import { useState } from 'react'
 import { flushSync } from 'react-dom'
 import styles from './Contact.module.css'
 
-const EMAIL = 'hello@fewandfamilyit.com'
+const EMAIL = 'JasonFew@fewandfamilyit.com'
 const PHONE_LABEL = '(559) 212-5444'
 
-// An empty VITE_FORMSPREE_ID opens the visitor's email app instead of posting to Formspree.
-const formspreeId = (import.meta.env.VITE_FORMSPREE_ID || '').trim()
-const FORMSPREE_ENDPOINT = formspreeId && formspreeId !== 'YOUR_FORM_ID'
-  ? `https://formspree.io/f/${formspreeId}`
-  : ''
+// GitHub Pages cannot send mail. FormSubmit relays each submission to the mailbox above.
+// Its JSON API returns HTTP 200 for refusals too, and success is the string "true" or "false".
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${encodeURIComponent(EMAIL)}`
 
-const emptyForm = { name: '', email: '', organization: '', message: '', _gotcha: '' }
+const emptyForm = { name: '', email: '', organization: '', message: '', _honey: '' }
 
 function validate(form) {
   const errors = {}
@@ -28,7 +26,6 @@ export default function Contact() {
   const [form, setForm] = useState(emptyForm)
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
-  const [viaEmailApp, setViaEmailApp] = useState(false)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -47,7 +44,6 @@ export default function Contact() {
     setForm(emptyForm)
     setErrors({})
     setSubmitted(false)
-    setViaEmailApp(false)
     setError(null)
   }
 
@@ -63,43 +59,32 @@ export default function Contact() {
     }
     setErrors({})
 
-    if (form._gotcha.trim()) {
+    if (form._honey.trim()) {
       setSubmitted(true)
-      setViaEmailApp(false)
       return
     }
 
     const payload = {
       name: form.name.trim(),
       email: form.email.trim(),
-      organization: form.organization.trim(),
       message: form.message.trim(),
+      _subject: `Website inquiry from ${form.name.trim().replace(/[\r\n]+/g, ' ')}`,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: form.email.trim(),
     }
-
-    if (!FORMSPREE_ENDPOINT) {
-      const body = [
-        `Name: ${payload.name}`,
-        `Email: ${payload.email}`,
-        payload.organization ? `Organization: ${payload.organization}` : null,
-        '',
-        payload.message,
-      ].filter((line) => line !== null).join('\n')
-      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Website inquiry')}&body=${encodeURIComponent(body)}`
-      setViaEmailApp(true)
-      setSubmitted(true)
-      return
-    }
+    if (form.organization.trim()) payload.organization = form.organization.trim()
 
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { Accept: 'application/json' },
+        body: new URLSearchParams(payload),
       })
-      if (!res.ok) throw new Error('Submission failed')
-      setViaEmailApp(false)
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || String(data.success) !== 'true') throw new Error('Submission failed')
       setSubmitted(true)
     } catch {
       setError(`We couldn't send that. Call ${PHONE_LABEL} or email ${EMAIL}.`)
@@ -130,12 +115,8 @@ export default function Contact() {
           {submitted ? (
             <div className={styles.success} role="status" aria-live="polite">
               <div className={styles.successIcon} aria-hidden="true">✅</div>
-              <h3>{viaEmailApp ? 'Ready to send' : 'Message received'}</h3>
-              <p>
-                {viaEmailApp
-                  ? `Your email app should open with this message ready to send. If it doesn't, email ${EMAIL}.`
-                  : "Thanks for reaching out. We'll be in touch within one business day."}
-              </p>
+              <h3>Message received</h3>
+              <p>Thanks for reaching out. We'll be in touch within one business day.</p>
               <button type="button" className={styles.again} onClick={reset}>Send another message</button>
             </div>
           ) : (
@@ -144,11 +125,11 @@ export default function Contact() {
                 <label htmlFor="gotcha">Leave this field blank</label>
                 <input
                   id="gotcha"
-                  name="_gotcha"
+                  name="_honey"
                   type="text"
                   tabIndex={-1}
                   autoComplete="off"
-                  value={form._gotcha}
+                  value={form._honey}
                   onChange={handleChange}
                 />
               </div>
