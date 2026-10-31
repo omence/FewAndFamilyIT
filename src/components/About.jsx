@@ -31,7 +31,7 @@ export default function About() {
             <p className={styles.body}>
               That mix of <strong>real municipal experience</strong> and{' '}
               <strong>enterprise-scale delivery</strong> is what Few &amp; Family IT brings
-              to every project — right here in Conroe and Montgomery County.
+              to every project — right here in Montgomery County and surrounding areas.
             </p>
 
             <div className={styles.stats}>
