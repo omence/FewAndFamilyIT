@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Navbar.module.css'
+import icon from '../assets/icon.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -37,7 +38,7 @@ export default function Navbar() {
     <header className={styles.header} ref={headerRef}>
       <div className={`container ${styles.inner}`}>
         <a href="#home" className={styles.logo} aria-label="Few & Family IT — home">
-          <span className={styles.logoMark} aria-hidden="true">F&amp;F</span>
+          <img className={styles.logoMark} src={icon} alt="" width={522} height={495} />
           <span className={styles.logoText}>Few &amp; Family IT</span>
         </a>
 
