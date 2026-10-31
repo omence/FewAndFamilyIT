@@ -116,7 +116,7 @@ export default function Contact() {
           <h2 id="contact-heading" className={`section-title ${styles.heading}`}>Let's Start a Conversation</h2>
           <p className={styles.sub}>
             Ready to modernize your infrastructure, build something new, or just explore what's
-            possible? Reach out — we'll respond within one business day.
+            possible? Reach out. We'll respond within one business day.
           </p>
           <ul className={styles.details} aria-label="Contact information">
             <li><span aria-hidden="true">📍</span> <strong>Montgomery, Texas</strong></li>

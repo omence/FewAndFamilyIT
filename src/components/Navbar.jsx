@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <header className={styles.header} ref={headerRef}>
       <div className={`container ${styles.inner}`}>
-        <a href="#home" className={styles.logo} aria-label="Few & Family IT — home">
+        <a href="#home" className={styles.logo} aria-label="Few & Family IT home">
           <img className={styles.logoMark} src={icon} alt="" width={522} height={495} />
           <span className={styles.logoText}>Few &amp; Family IT</span>
         </a>

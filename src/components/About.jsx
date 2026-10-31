@@ -31,7 +31,7 @@ export default function About() {
             <p className={styles.body}>
               That mix of <strong>real municipal experience</strong> and{' '}
               <strong>enterprise-scale delivery</strong> is what Few &amp; Family IT brings
-              to every project — right here in Montgomery County and surrounding areas.
+              to every project, right here in Montgomery County and surrounding areas.
             </p>
 
             <div className={styles.stats}>
@@ -51,13 +51,13 @@ export default function About() {
               <p>
                 Most consultants have never sat inside a city department. Jason has.
                 That means we understand your constraints, your approval chains, and
-                your constituents — not just your tech stack.
+                your constituents, not just your tech stack.
               </p>
               <div className={styles.divider} />
               <div className={styles.calloutIcon} aria-hidden="true">🤝</div>
               <h3>You Can Actually Meet Us</h3>
               <p>
-                Based in Montgomery, TX — available for on-site visits across Montgomery
+                Based in Montgomery, TX, and available for on-site visits across Montgomery
                 County and surrounding areas. No 1-800 numbers. No offshore queues.
               </p>
               <a href="#contact" className="btn btn-primary">Let's Talk</a>

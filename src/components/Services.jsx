@@ -5,7 +5,7 @@ const services = [
     icon: '☁️',
     title: 'Cloud Infrastructure & Migration',
     description:
-      'Design, migrate, and manage your workloads on AWS. From lift-and-shift to full cloud-native architectures — we handle the complexity so you don\'t have to.',
+      'Design, migrate, and manage your workloads on AWS. From lift-and-shift to full cloud-native architectures, we handle the complexity so you don\'t have to.',
   },
   {
     icon: '💻',
@@ -50,7 +50,7 @@ export default function Services() {
           <span className={styles.complianceIcon} aria-hidden="true">✓</span>
           <p>
             All builds follow <strong>Section 508</strong> and{' '}
-            <strong>Texas TAC 206</strong> accessibility standards — so your constituents
+            <strong>Texas TAC 206</strong> accessibility standards, so your constituents
             and staff can use every tool we deliver, regardless of ability.
           </p>
         </div>

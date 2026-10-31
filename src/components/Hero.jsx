@@ -6,7 +6,7 @@ export default function Hero() {
     <section
       className={styles.hero}
       id="home"
-      aria-label="Introduction — Few & Family IT"
+      aria-label="Introduction, Few & Family IT"
     >
       <img
         className={styles.photo}

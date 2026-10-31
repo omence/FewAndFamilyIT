@@ -10,7 +10,7 @@ export default function Footer() {
           <span className={styles.logoText}>Few &amp; Family IT</span>
         </div>
         <p className={styles.copy}>
-          <small>© {new Date().getFullYear()} Few &amp; Family IT, LLC — Montgomery, Texas. All rights reserved.</small>
+          <small>© {new Date().getFullYear()} Few &amp; Family IT, LLC, Montgomery, Texas. All rights reserved.</small>
         </p>
         <nav className={styles.links} aria-label="Footer navigation">
           <a href="#services">Services</a>
