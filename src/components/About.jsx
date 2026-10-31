@@ -57,8 +57,8 @@ export default function About() {
               <div className={styles.calloutIcon} aria-hidden="true">🤝</div>
               <h3>You Can Actually Meet Us</h3>
               <p>
-                Based in Montgomery, TX — available for on-site visits across Conroe
-                and Montgomery County. No 1-800 numbers. No offshore queues.
+                Based in Montgomery, TX — available for on-site visits across Montgomery
+                County and surrounding areas. No 1-800 numbers. No offshore queues.
               </p>
               <a href="#contact" className="btn btn-primary">Let's Talk</a>
             </div>

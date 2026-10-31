@@ -120,7 +120,7 @@ export default function Contact() {
           </p>
           <ul className={styles.details} aria-label="Contact information">
             <li><span aria-hidden="true">📍</span> <strong>Montgomery, Texas</strong></li>
-            <li><span aria-hidden="true">🌐</span> Serving Conroe &amp; Montgomery County</li>
+            <li><span aria-hidden="true">🌐</span> Serving Montgomery County and surrounding areas</li>
             <li><span aria-hidden="true">📞</span> <a href="tel:+15592125444">{PHONE_LABEL}</a></li>
             <li><span aria-hidden="true">✉️</span> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
           </ul>
