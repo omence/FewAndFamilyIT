@@ -8,9 +8,10 @@ export default function Navbar() {
   const burgerRef = useRef(null)
 
   const links = [
-    { label: 'Services', href: '#services' },
-    { label: 'About',    href: '#about' },
-    { label: 'Contact',  href: '#contact' },
+    { label: 'Services',  href: '#services' },
+    { label: 'Contracts', href: '#contracts' },
+    { label: 'About',     href: '#about' },
+    { label: 'Contact',   href: '#contact' },
   ]
 
   useEffect(() => {

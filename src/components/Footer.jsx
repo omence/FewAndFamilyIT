@@ -14,6 +14,7 @@ export default function Footer() {
         </p>
         <nav className={styles.links} aria-label="Footer navigation">
           <a href="#services">Services</a>
+          <a href="#contracts">Contracts</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
