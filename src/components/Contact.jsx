@@ -3,7 +3,7 @@ import { flushSync } from 'react-dom'
 import styles from './Contact.module.css'
 
 const EMAIL = 'JasonFew@fewandfamilyit.com'
-const PHONE_LABEL = '(559) 212-5444'
+const PHONE_LABEL = '(936) 370-8206'
 
 // GitHub Pages cannot send mail. FormSubmit relays each submission to the mailbox above.
 // Its JSON API returns HTTP 200 for refusals too, and success is the string "true" or "false".
@@ -117,7 +117,7 @@ export default function Contact() {
           <ul className={styles.details} aria-label="Contact information">
             <li><span aria-hidden="true">📍</span> <strong>Montgomery, Texas</strong></li>
             <li><span aria-hidden="true">🌐</span> Serving Montgomery County and surrounding areas</li>
-            <li><span aria-hidden="true">📞</span> <a href="tel:+15592125444">{PHONE_LABEL}</a></li>
+            <li><span aria-hidden="true">📞</span> <a href="tel:+19363708206">{PHONE_LABEL}</a></li>
             <li><span aria-hidden="true">✉️</span> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
           </ul>
         </div>
