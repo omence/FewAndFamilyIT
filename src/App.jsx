@@ -5,19 +5,34 @@ import PublicSector from './components/PublicSector'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CapabilityStatement from './components/CapabilityStatement'
+
+function currentPath() {
+  const path = window.location.pathname.replace(/\/+$/, '')
+  return path || '/'
+}
 
 function App() {
+  const path = currentPath()
+  const isCapability = path === '/capability-statement'
+
   return (
     <>
-      <Navbar />
+      <Navbar path={path} />
       <main id="main-content">
-        <Hero />
-        <Services />
-        <PublicSector />
-        <About />
-        <Contact />
+        {isCapability ? (
+          <CapabilityStatement />
+        ) : (
+          <>
+            <Hero />
+            <Services />
+            <PublicSector />
+            <About />
+            <Contact />
+          </>
+        )}
       </main>
-      <Footer />
+      <Footer path={path} />
     </>
   )
 }

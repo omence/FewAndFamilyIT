@@ -2,16 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './Navbar.module.css'
 import icon from '../assets/icon.png'
 
-export default function Navbar() {
+export default function Navbar({ path = '/' }) {
   const [open, setOpen] = useState(false)
   const headerRef = useRef(null)
   const burgerRef = useRef(null)
 
   const links = [
-    { label: 'Services',  href: '#services' },
-    { label: 'Contracts', href: '#contracts' },
-    { label: 'About',     href: '#about' },
-    { label: 'Contact',   href: '#contact' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Contracts', href: '/#contracts' },
+    { label: 'Capability Statement', href: '/capability-statement' },
+    { label: 'About', href: '/#about' },
+    { label: 'Contact', href: '/#contact' },
   ]
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function Navbar() {
   return (
     <header className={styles.header} ref={headerRef}>
       <div className={`container ${styles.inner}`}>
-        <a href="#home" className={styles.logo} aria-label="Few & Family IT home">
+        <a href="/#home" className={styles.logo} aria-label="Few & Family IT home">
           <img className={styles.logoMark} src={icon} alt="" width={522} height={495} />
           <span className={styles.logoText}>Few &amp; Family IT</span>
         </a>
@@ -49,11 +50,17 @@ export default function Navbar() {
           aria-label="Primary navigation"
         >
           {links.map(l => (
-            <a key={l.label} href={l.href} className={styles.navLink} onClick={() => setOpen(false)}>
+            <a
+              key={l.label}
+              href={l.href}
+              className={`${styles.navLink} ${path === l.href ? styles.navLinkActive : ''}`}
+              aria-current={path === l.href ? 'page' : undefined}
+              onClick={() => setOpen(false)}
+            >
               {l.label}
             </a>
           ))}
-          <a href="#contact" className={`btn btn-primary ${styles.navCta}`} onClick={() => setOpen(false)}>
+          <a href="/#contact" className={`btn btn-primary ${styles.navCta}`} onClick={() => setOpen(false)}>
             Get in Touch
           </a>
         </nav>

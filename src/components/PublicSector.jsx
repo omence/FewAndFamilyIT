@@ -36,6 +36,9 @@ export default function PublicSector() {
                 projects that larger firms often pass up, providing local agencies with
                 elite engineering expertise without the enterprise overhead.
               </p>
+              <p>
+                <a className={styles.docLink} href="/capability-statement">View our capability statement</a>
+              </p>
             </div>
           </div>
 

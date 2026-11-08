@@ -1,7 +1,7 @@
 import styles from './Footer.module.css'
 import icon from '../assets/icon.png'
 
-export default function Footer() {
+export default function Footer({ path = '/' }) {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
@@ -13,10 +13,13 @@ export default function Footer() {
           <small>© {new Date().getFullYear()} Few &amp; Family IT, LLC, Montgomery, Texas. All rights reserved.</small>
         </p>
         <nav className={styles.links} aria-label="Footer navigation">
-          <a href="#services">Services</a>
-          <a href="#contracts">Contracts</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="/#services">Services</a>
+          <a href="/#contracts">Contracts</a>
+          <a href="/capability-statement" aria-current={path === '/capability-statement' ? 'page' : undefined}>
+            Capability Statement
+          </a>
+          <a href="/#about">About</a>
+          <a href="/#contact">Contact</a>
         </nav>
       </div>
     </footer>
