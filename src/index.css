@@ -74,6 +74,13 @@ body {
 
 section { padding: 5rem 0; }
 
+#services,
+#contracts,
+#about,
+#contact {
+  scroll-margin-top: 68px;
+}
+
 /* ── Screen Reader Only ── */
 .sr-only {
   position: absolute;
